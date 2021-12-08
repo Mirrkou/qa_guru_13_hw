@@ -20,19 +20,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class MainPageTest extends TestBase {
 
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
-    }
-
-    @BeforeEach
-    void openPage() {
-        open("https://www.wildberries.ru/");
-    }
-
     @DisplayName("Поиск шапки через общее поле поиска 'Я ищу'")
     @Test
     void searchHat() {
+        step("Open url 'https://www.wildberries.ru/'", () ->
+                open("https://www.wildberries.ru/"));
         $("#searchInput").setValue("Шапка").pressEnter();
         $(".searching-results__title").shouldHave(text("По запросу «шапка» найдено"));
     }
@@ -40,6 +32,8 @@ public class MainPageTest extends TestBase {
     @DisplayName("Поиск джинс через общее поле поиска 'Я ищу'")
     @Test
     void searchJeans() {
+        step("Open url 'https://www.wildberries.ru/'", () ->
+                open("https://www.wildberries.ru/"));
         $("#searchInput").setValue("Джинсы").pressEnter();
         $(".searching-results__title").shouldHave(text("По запросу «джинсы» найдено"));
     }
@@ -47,6 +41,8 @@ public class MainPageTest extends TestBase {
     @DisplayName("Нажать на корзину")
     @Test
     void openBasket() {
+        step("Open url 'https://www.wildberries.ru/'", () ->
+                open("https://www.wildberries.ru/"));
         $("[class='navbar-pc__icon navbar-pc__icon--basket']").click();
         $("[class='basket-page__basket-empty basket-empty']").shouldHave(text("В корзине пока ничего нет"));
     }
@@ -54,6 +50,8 @@ public class MainPageTest extends TestBase {
     @DisplayName("Открыть раздел 'Доставка'")
     @Test
     void openDeliverySection() {
+        step("Open url 'https://www.wildberries.ru/'", () ->
+                open("https://www.wildberries.ru/"));
         $("[class='simple-menu__item'] [class='simple-menu__link']").click();
         $("[class='free-shipping-banner']").shouldHave(text("Доставка"));
     }
@@ -61,6 +59,8 @@ public class MainPageTest extends TestBase {
     @DisplayName("Сообщить о проблеме")
     @Test
     void sendMessageAboutProblem() {
+        step("Open url 'https://www.wildberries.ru/'", () ->
+                open("https://www.wildberries.ru/"));
         $("[class='btn-chat__text']").click();
         $("[class='chat__textarea j-chat-textarea']").sendKeys("Хьюстон, у нас проблема!");
         $("[type='submit']").click();
