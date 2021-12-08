@@ -68,7 +68,7 @@ public class MainPageTest extends TestBase {
     }
 
 
-   /* @Test
+    @Test
     @Description("Soon to be implemented by you (or QA.GURU engineers)")
     @DisplayName("Search test")
     void generatedTest() {
@@ -105,5 +105,5 @@ public class MainPageTest extends TestBase {
 
             assertThat(consoleLogs).doesNotContain(errorText);
         });
-    }*/
+    }
 }
