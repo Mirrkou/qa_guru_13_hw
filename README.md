@@ -31,14 +31,9 @@
 
  :heavy_check_mark: Сообщение о проблеме
 
+## :boom: Параметры запусков
 
-# Jenkins job
-<a target="_blank" href="https://jenkins.autotests.cloud/job/%s">jenkins.autotests.cloud/job/%s</a>
-
-
-# Параметры запусков
-
-### For run remote tests need fill remote.properties or to pass value:
+For run remote tests need fill remote.properties or to pass value:
 
 * browser (default chrome)
 * browserVersion (default 89.0)
@@ -70,4 +65,23 @@ allure serve build/allure-results
 ```bash
 gradle clean test
 ```
+## :boom: Результаты запусков
+Параметры запуска в Jenkins
+<p  align="left"
+<code><img width="60%" title="IntelliJ IDEA" src="images/paramzap.png"></code>
+</p>
+Отчёт о прохождении автотестов в Allure Report
+<p  align="left"
+<code><img width="60%" title="IntelliJ IDEA" src="images/allurerep.png"></code>
+</p>
+Тест-кейсы в Allure TestOps
+<p  align="left"
+<code><img width="60%" title="IntelliJ IDEA" src="images/tc.png"></code>
+</p>
+Уведомления о прохождении автотестов в Telegram
+<p  align="left"
+<code><img width="60%" title="IntelliJ IDEA" src="images/tg.png"></code>
+</p>
+
+
 
