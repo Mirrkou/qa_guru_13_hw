@@ -1,5 +1,36 @@
-# Project in Allure TestOps with manual & automated tests
-<a target="_blank" href="https://allure.autotests.cloud/project/%s">allure.autotests.cloud/project/%s</a> (ask admin@qa.guru for access)
+## :boom: Проект по автоматизации тестирования WB
+
+## :boom: Инструменты
+
+<p  align="center"
+
+<code><img width="5%" title="IntelliJ IDEA" src="images/IDEA-logo.svg"></code>
+<code><img width="5%" title="Java" src="images/java-logo.svg"></code>
+<code><img width="5%" title="Selenide" src="images/selenide-logo.svg"></code>
+<code><img width="5%" title="Selenoid" src="images/selenoid-logo.svg"></code>
+<code><img width="5%" title="Gradle" src="images/gradle-logo.svg "></code>
+<code><img width="5%" title="JUnit5" src="images/junit5-logo.svg"></code>
+<code><img width="5%" title="Allure Report" src="images/allure-Report-logo.svg"></code>
+<code><img width="5%" title="Allure TestOps" src="images/allure-ee-logo.svg"></code>
+<code><img width="5%" title="Github" src="images/git-logo.svg"></code>
+<code><img width="5%" title="Jenkins" src="images/jenkins-logo.svg"></code>
+<code><img width="5%" title="Jira" src="images/jira-logo.svg"></code>
+<code><img width="5%" title="Telegram" src="images/Telegram.svg"></code>
+</p>
+
+
+### :boom: Реализованы проверки
+#### - UI
+ :heavy_check_mark: Поиск шапки через общее поле поиска 'Я ищу'
+
+ :heavy_check_mark: Поиск джинс через общее поле поиска 'Я ищу'
+
+ :heavy_check_mark: Проверка товаров в корзине
+
+ :heavy_check_mark: Открытие раздела 'Доставка'
+
+ :heavy_check_mark: Сообщение о проблеме
+
 
 # Jenkins job
 <a target="_blank" href="https://jenkins.autotests.cloud/job/%s">jenkins.autotests.cloud/job/%s</a>
