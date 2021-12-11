@@ -68,19 +68,23 @@ gradle clean test
 ## :boom: Результаты запусков
 Параметры запуска в Jenkins
 <p  align="left"
-<code><img width="60%" title="IntelliJ IDEA" src="images/paramzap.png"></code>
+<code><img width="60%" title="Jenkins" src="images/paramzap.png"></code>
 </p>
 Отчёт о прохождении автотестов в Allure Report
 <p  align="left"
-<code><img width="60%" title="IntelliJ IDEA" src="images/allurerep.png"></code>
+<code><img width="60%" title="Allure Report" src="images/allurerep.png"></code>
 </p>
 Тест-кейсы в Allure TestOps
 <p  align="left"
-<code><img width="60%" title="IntelliJ IDEA" src="images/tc.png"></code>
+<code><img width="60%" title="Allure TestOps" src="images/tc.png"></code>
+</p>
+Пример запуска теста в Selenoid
+<p  align="left"
+<code><img width="60%" title="Selenoid" src="images/selenoid.gif"></code>
 </p>
 Уведомления о прохождении автотестов в Telegram
 <p  align="left"
-<code><img width="60%" title="IntelliJ IDEA" src="images/tg.png"></code>
+<code><img width="60%" title="Telegram" src="images/tg.png"></code>
 </p>
 
 
