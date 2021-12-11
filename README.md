@@ -1,4 +1,4 @@
-## :boom: Проект по автоматизации тестирования WB
+<h1 align="center"> :boom: Проект по автоматизации тестирования WB </h1>
 
 ## :boom: Инструменты
 
@@ -78,14 +78,15 @@ gradle clean test
 <p  align="left"
 <code><img width="60%" title="Allure TestOps" src="images/tc.png"></code>
 </p>
+Интеграция с Jira
+<p  align="left"
+<code><img width="60%" title="Jira" src="images/jira.png"></code>
+</p>
 Пример запуска теста в Selenoid
 <p  align="left"
 <code><img width="60%" title="Selenoid" src="images/selenoid.gif"></code>
 </p>
 Уведомления о прохождении автотестов в Telegram
 <p  align="left"
-<code><img width="60%" title="Telegram" src="images/tg.png"></code>
+<code><img width="40%" title="Telegram" src="images/tg.png"></code>
 </p>
-
-
-
