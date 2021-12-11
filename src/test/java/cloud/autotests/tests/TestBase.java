@@ -29,14 +29,11 @@ public class TestBase {
         AllureAttachments.addPageSource();
 //        AllureAttachments.attachNetwork(); // todo
         AllureAttachments.addBrowserConsoleLogs();
-        if (Project.isVideoOn()) {
-            AllureAttachments.addVideo(sessionId);
-        }
 
         Selenide.closeWebDriver();
 
-        /*if (Project.isVideoOn()) {
+        if (Project.isVideoOn()) {
             AllureAttachments.addVideo(sessionId);
-        }*/
+        }
     }
 }
