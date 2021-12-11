@@ -1,21 +1,17 @@
 package cloud.autotests.tests;
 
-import cloud.autotests.helpers.DriverUtils;
-import com.codeborne.selenide.Configuration;
-import io.qameta.allure.Description;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sleep;
 import static com.codeborne.selenide.Selenide.title;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
+
+import cloud.autotests.helpers.DriverUtils;
+import io.qameta.allure.Description;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 
 public class MainPageTest extends TestBase {
@@ -25,8 +21,10 @@ public class MainPageTest extends TestBase {
     void searchHat() {
         step("Open url 'https://www.wildberries.ru/'", () ->
                 open("https://www.wildberries.ru/"));
-        $("#searchInput").setValue("Шапка").pressEnter();
-        $(".searching-results__title").shouldHave(text("По запросу «шапка» найдено"));
+        step("Ввести в поле поиска значение", () ->
+                $("#searchInput").setValue("Шапка").pressEnter());
+        step("Проверить результаты поиска", () ->
+                $(".searching-results__title").shouldHave(text("По запросу «шапка» найдено")));
     }
 
     @DisplayName("Поиск джинс через общее поле поиска 'Я ищу'")
@@ -34,17 +32,22 @@ public class MainPageTest extends TestBase {
     void searchJeans() {
         step("Open url 'https://www.wildberries.ru/'", () ->
                 open("https://www.wildberries.ru/"));
-        $("#searchInput").setValue("Джинсы").pressEnter();
-        $(".searching-results__title").shouldHave(text("По запросу «джинсы» найдено"));
+        step("Ввести в поле поиска значение", () ->
+                $("#searchInput").setValue("Джинсы").pressEnter());
+        step("Проверить результаты поиска", () ->
+                $(".searching-results__title").shouldHave(text("По запросу «джинсы» найдено")));
     }
 
-    @DisplayName("Нажать на корзину")
+    @DisplayName("Проверка товаров в корзине")
     @Test
     void openBasket() {
         step("Open url 'https://www.wildberries.ru/'", () ->
                 open("https://www.wildberries.ru/"));
-        $("[class='navbar-pc__icon navbar-pc__icon--basket']").click();
-        $("[class='basket-page__basket-empty basket-empty']").shouldHave(text("В корзине пока ничего нет"));
+        step("Нажать на корзину", () ->
+                $("[class='navbar-pc__icon navbar-pc__icon--basket']").click());
+        step("Проверить отсутствие товаров в корзине", () ->
+        $("[class='basket-page__basket-empty basket-empty']").shouldHave(
+                text("В корзине пока ничего нет")));
     }
 
     @DisplayName("Открыть раздел 'Доставка'")
@@ -52,8 +55,10 @@ public class MainPageTest extends TestBase {
     void openDeliverySection() {
         step("Open url 'https://www.wildberries.ru/'", () ->
                 open("https://www.wildberries.ru/"));
-        $("[class='simple-menu__item'] [class='simple-menu__link']").click();
-        $("[class='free-shipping-banner']").shouldHave(text("Доставка"));
+        step("Нажать на раздел Доставка", () ->
+                $("[class='simple-menu__item'] [class='simple-menu__link']").click());
+        step("Проверить, что раздел Доставка открывается", () ->
+                $("[class='free-shipping-banner']").shouldHave(text("Доставка")));
     }
 
     @DisplayName("Сообщить о проблеме")
@@ -61,10 +66,14 @@ public class MainPageTest extends TestBase {
     void sendMessageAboutProblem() {
         step("Open url 'https://www.wildberries.ru/'", () ->
                 open("https://www.wildberries.ru/"));
-        $("[class='btn-chat__text']").click();
-        $("[class='chat__textarea j-chat-textarea']").sendKeys("Хьюстон, у нас проблема!");
-        $("[type='submit']").click();
-        $("[class='message__manager']").shouldBe(visible);
+        step("Нажать на иконку сообщения о проблеме", () ->
+                $("[class='btn-chat__text']").click());
+        step("Оставить сообщение о проблеме", () ->
+                $("[class='chat__textarea j-chat-textarea']").sendKeys("Хьюстон, у нас проблема!"));
+        step("Отправить сообщение", () ->
+                $("[type='submit']").click());
+        step("Проверить, что сообщение отправлено", () ->
+                $("[class='message__manager']").shouldBe(visible));
     }
 
 
@@ -82,14 +91,15 @@ public class MainPageTest extends TestBase {
     @DisplayName("Page title should have header text")
     void titleTest() {
         step("Open url 'https://www.wildberries.ru/'", () ->
-            open("https://www.wildberries.ru/"));
+                open("https://www.wildberries.ru/"));
 
-        step("Page title should have text 'Wildberries – Интернет-магазин модной одежды и обуви'", () -> {
-            String expectedTitle = "Wildberries – Интернет-магазин модной одежды и обуви";
-            String actualTitle = title();
+        step("Page title should have text 'Wildberries – Интернет-магазин модной одежды и обуви'",
+             () -> {
+                 String expectedTitle = "Wildberries – Интернет-магазин модной одежды и обуви";
+                 String actualTitle = title();
 
-            assertThat(actualTitle).isEqualTo(expectedTitle);
-        });
+                 assertThat(actualTitle).isEqualTo(expectedTitle);
+             });
     }
 
     @Test
@@ -97,7 +107,7 @@ public class MainPageTest extends TestBase {
     @DisplayName("Page console log should not have errors")
     void consoleShouldNotHaveErrorsTest() {
         step("Open url 'https://www.wildberries.ru/'", () ->
-            open("https://www.wildberries.ru/"));
+                open("https://www.wildberries.ru/"));
 
         step("Console logs should not contain text 'SEVERE'", () -> {
             String consoleLogs = DriverUtils.getConsoleLogs();
