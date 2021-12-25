@@ -18,7 +18,7 @@ public class DriverSettings {
     private static String password = config.password();
     private static String selenoidUrl = System.getProperty("URL");
 
-    private static String remoteUrl = String.format("https://%s:%s@%s/wd/hub/", login, password, selenoidUrl);
+    private static String remoteUrl = String.format("https://%s:%s@selenoid.autotests.cloud/wd/hub/", login, password, selenoidUrl);
 
     public static void configure() {
         Configuration.browser = Project.config.browser();

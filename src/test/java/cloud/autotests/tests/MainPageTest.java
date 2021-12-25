@@ -17,11 +17,14 @@ import org.junit.jupiter.api.Test;
 
 public class MainPageTest extends TestBase {
 
+    private void openManePage() {
+        open("https://www.wildberries.ru/");
+    }
+
     @DisplayName("Поиск шапки через общее поле поиска 'Я ищу'")
     @Test
     void searchHat() {
-        step("Open url 'https://www.wildberries.ru/'", () ->
-                open("https://www.wildberries.ru/"));
+        openManePage();
         step("Ввести в поле поиска значение", () ->
                 $("#searchInput").setValue("Шапка").pressEnter());
         step("Проверить результаты поиска", () ->
@@ -31,8 +34,7 @@ public class MainPageTest extends TestBase {
     @DisplayName("Поиск джинс через общее поле поиска 'Я ищу'")
     @Test
     void searchJeans() {
-        step("Open url 'https://www.wildberries.ru/'", () ->
-                open("https://www.wildberries.ru/"));
+        openManePage();
         step("Ввести в поле поиска значение", () ->
                 $("#searchInput").setValue("Джинсы").pressEnter());
         step("Проверить результаты поиска", () ->
@@ -42,8 +44,7 @@ public class MainPageTest extends TestBase {
     @DisplayName("Проверка товаров в корзине")
     @Test
     void openBasket() {
-        step("Open url 'https://www.wildberries.ru/'", () ->
-                open("https://www.wildberries.ru/"));
+        openManePage();
         step("Нажать на корзину", () ->
                 $("[class='navbar-pc__icon navbar-pc__icon--basket']").click());
         step("Проверить отсутствие товаров в корзине", () ->
@@ -54,8 +55,7 @@ public class MainPageTest extends TestBase {
     @DisplayName("Открыть раздел 'Доставка'")
     @Test
     void openDeliverySection() {
-        step("Open url 'https://www.wildberries.ru/'", () ->
-                open("https://www.wildberries.ru/"));
+        openManePage();
         step("Нажать на раздел Доставка", () ->
                 $("[class='simple-menu__item'] [class='simple-menu__link']").click());
         step("Проверить, что раздел Доставка открывается", () ->
@@ -65,8 +65,7 @@ public class MainPageTest extends TestBase {
     @DisplayName("Сообщить о проблеме")
     @Test
     void sendMessageAboutProblem() {
-        step("Open url 'https://www.wildberries.ru/'", () ->
-                open("https://www.wildberries.ru/"));
+        openManePage();
         step("Нажать на иконку сообщения о проблеме", () ->
                 $("[class='btn-chat__text']").click());
         step("Оставить сообщение о проблеме", () ->
