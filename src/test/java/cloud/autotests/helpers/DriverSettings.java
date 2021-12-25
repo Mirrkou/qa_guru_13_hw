@@ -1,7 +1,9 @@
 package cloud.autotests.helpers;
 
-import cloud.autotests.config.Project;
 import com.codeborne.selenide.Configuration;
+import cloud.autotests.config.Project;
+import cloud.autotests.config.ProjectConfig;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -10,11 +12,18 @@ import java.util.Map;
 
 public class DriverSettings {
 
+    public static ProjectConfig config = ConfigFactory.create(ProjectConfig.class);
+
+    private static String login = config.login();
+    private static String password = config.password();
+    private static String selenoidUrl = System.getProperty("URL");
+
+    private static String remoteUrl = String.format("https://%s:%s@%s/wd/hub/", login, password, selenoidUrl);
+
     public static void configure() {
         Configuration.browser = Project.config.browser();
         Configuration.browserVersion = Project.config.browserVersion();
         Configuration.browserSize = Project.config.browserSize();
-//        Configuration.baseUrl = App.config.webUrl();
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         ChromeOptions chromeOptions = new ChromeOptions();
@@ -34,10 +43,11 @@ public class DriverSettings {
         if (Project.isRemoteWebDriver()) {
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", true);
-            Configuration.remote = Project.config.remoteDriverUrl();
+            Configuration.remote = remoteUrl;
         }
 
         capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
         Configuration.browserCapabilities = capabilities;
+        Configuration.timeout = 10000;
     }
 }
