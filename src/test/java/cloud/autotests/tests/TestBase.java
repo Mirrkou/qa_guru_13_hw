@@ -13,6 +13,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith({AllureJunit5.class})
 public class TestBase {
+
     @BeforeAll
     static void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
@@ -21,9 +22,9 @@ public class TestBase {
 
     @AfterEach
     public void addAttachments() {
-        AllureAttachments.screenshotAs("Last screenshot");
-        AllureAttachments.pageSource();
-        AllureAttachments.browserConsoleLogs();
+        AllureAttachments.addScreenshotAs("Last screenshot");
+        AllureAttachments.addPageSource();
+        AllureAttachments.addBrowserConsoleLogs();
         AllureAttachments.addVideo();
         Selenide.closeWebDriver();
     }
